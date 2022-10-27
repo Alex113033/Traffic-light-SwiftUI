@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ButtonSwitching: View {
-    
     let text: String
     let action: () -> Void
     
@@ -17,7 +16,7 @@ struct ButtonSwitching: View {
             Text(text)
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                .foregroundColor(Color.blue)
+                .foregroundColor(Color.white)
         }
         .offset(x: 0, y: 40)
     }

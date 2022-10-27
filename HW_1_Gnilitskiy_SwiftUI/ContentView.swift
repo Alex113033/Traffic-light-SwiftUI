@@ -20,7 +20,6 @@ struct ContentView: View {
             Color(.black)
                 .ignoresSafeArea()
             VStack {
-                
                 ColorCircle(color: .red, opacity: colorLight == .red ? 1 : 0.3)
                 ColorCircle(color: .yellow, opacity: colorLight == .yellow ? 1 : 0.3)
                 ColorCircle(color: .green, opacity: colorLight == .green ? 1 : 0.3)
