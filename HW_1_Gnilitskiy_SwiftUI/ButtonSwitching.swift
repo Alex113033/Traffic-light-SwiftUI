@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ButtonSwitching: View {
     
-    let action: () -> Void
     let text: String
+    let action: () -> Void
     
     var body: some View {
         Button(action: action){
@@ -25,6 +25,6 @@ struct ButtonSwitching: View {
 
 struct ButtonSwitching_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonSwitching(action: {}, text: "Button")
+        ButtonSwitching(text: "Button", action: {})
     }
 }

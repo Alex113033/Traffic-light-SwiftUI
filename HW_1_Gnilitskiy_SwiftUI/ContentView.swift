@@ -20,20 +20,13 @@ struct ContentView: View {
             ColorCircle(colorOne: .yellow.opacity(glowYellow))
             ColorCircle(colorOne: .green.opacity(glowGreen))
 
-            ButtonSwitching(action: {
+            ButtonSwitching(text: buttonText) {
                 switchColor()
-            }, text: buttonText)
-//            Button(action: {
-//                switchColor()
-//            }){
-//                Text("\(buttonText)")
-//                    .font(.title)
-//            }
-//            .offset(x: 0, y: 40)
-//        }
+            }
+        }
     }
     
-    func switchColor (){
+    private func switchColor (){
         buttonText = "NEXT"
         if indexSwitch == 1 {
             glowRed = 1.0
