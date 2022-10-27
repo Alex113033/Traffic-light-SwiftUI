@@ -7,48 +7,45 @@
 
 import SwiftUI
 
+enum ColorLight {
+    case red, yellow, green, off
+}
+
 struct ContentView: View {
-    @State private var buttonText = "START"
-    @State private var glowRed = 0.3
-    @State private var glowYellow = 0.3
-    @State private var glowGreen = 0.3
-    @State private var indexSwitch = 1
+    @State private var colorLight = ColorLight.off
+    @State private var buttonText = "START"    
     
     var body: some View {
-        VStack {
-            ColorCircle(colorOne: .red.opacity(glowRed))
-            ColorCircle(colorOne: .yellow.opacity(glowYellow))
-            ColorCircle(colorOne: .green.opacity(glowGreen))
-
-            ButtonSwitching(text: buttonText) {
-                switchColor()
+        ZStack{
+            Color(.black)
+                .ignoresSafeArea()
+            VStack {
+                
+                ColorCircle(color: .red, opacity: colorLight == .red ? 1 : 0.3)
+                ColorCircle(color: .yellow, opacity: colorLight == .yellow ? 1 : 0.3)
+                ColorCircle(color: .green, opacity: colorLight == .green ? 1 : 0.3)
+                
+                ButtonSwitching(text: buttonText) {
+                    buttonText = "NEXT"
+                    updateSwitch()
+                }
             }
         }
     }
     
-    private func switchColor (){
-        buttonText = "NEXT"
-        if indexSwitch == 1 {
-            glowRed = 1.0
-            glowYellow = 0.3
-            glowGreen = 0.3
-            indexSwitch = 2
-        } else if indexSwitch == 2 {
-            glowRed = 0.3
-            glowYellow = 1.0
-            glowGreen = 0.3
-            indexSwitch = 3
-        } else if indexSwitch == 3 {
-            glowRed = 0.3
-            glowYellow = 0.3
-            glowGreen = 1.0
-            indexSwitch = 1
+   private func updateSwitch (){
+        switch colorLight {
+        case .red:
+            colorLight = .yellow
+        case .yellow:
+            colorLight = .green
+        case .green:
+            colorLight = .red
+        case .off:
+            colorLight = .red
         }
     }
 }
-
-
-
 
 struct ContentView_Previews: PreviewProvider {
         static var previews: some View {

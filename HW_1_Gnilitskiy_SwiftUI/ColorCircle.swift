@@ -8,25 +8,24 @@
 import SwiftUI
 
 struct ColorCircle: View {
-    let colorOne: Color
-//    let colorTwo: Color
-//    let colorThree: Color
     
+    let color: Color
+    let opacity: Double
+
     var body: some View {
         VStack {
             Circle()
-                .foregroundColor(colorOne)
+                .foregroundColor(color)
                 .frame(width: 100, height: 100)
-                .shadow(color: colorOne, radius: 15)
+                .shadow(color: color, radius: 15)
+                .opacity(opacity)
         }
         .offset(x: 0, y: -80)
-
     }
 }
 
-
 struct ColorCircle_Previews: PreviewProvider {
     static var previews: some View {
-        ColorCircle(colorOne: .red)
+        ColorCircle(color: .red, opacity: 0.3)
     }
 }
