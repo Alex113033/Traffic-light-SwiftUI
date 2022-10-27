@@ -19,22 +19,21 @@ struct ContentView: View {
             ColorCircle(colorOne: .red.opacity(glowRed))
             ColorCircle(colorOne: .yellow.opacity(glowYellow))
             ColorCircle(colorOne: .green.opacity(glowGreen))
-            
-//            Button(buttonText) {
-//                switchColor()
-//            }
-            
-            Button(action: {
+
+            ButtonSwitching(action: {
                 switchColor()
-            }){
-                Text("\(buttonText)")
-                    .font(.title)
-            }
-            .offset(x: 0, y: 40)
-        }
+            }, text: buttonText)
+//            Button(action: {
+//                switchColor()
+//            }){
+//                Text("\(buttonText)")
+//                    .font(.title)
+//            }
+//            .offset(x: 0, y: 40)
+//        }
     }
     
-    private func switchColor (){
+    func switchColor (){
         buttonText = "NEXT"
         if indexSwitch == 1 {
             glowRed = 1.0
@@ -54,6 +53,7 @@ struct ContentView: View {
         }
     }
 }
+
 
 
 
