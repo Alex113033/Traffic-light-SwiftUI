@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ColorCircle: View {
-    
     let color: Color
     let opacity: Double
 
@@ -16,7 +15,7 @@ struct ColorCircle: View {
         VStack {
             Circle()
                 .foregroundColor(color)
-                .frame(width: 100, height: 100)
+                .frame(width: 110, height: 110)
                 .shadow(color: color, radius: 15)
                 .opacity(opacity)
         }
